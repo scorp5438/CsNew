@@ -3,58 +3,58 @@
 // Задайте двумерный массив. Напишите программу, которая
 // упорядочит по убыванию элементы каждой строки двумерного массива.
 
-// int size = new Random().Next(5, 10);
-// int [,] collections = new int [size, size];
+int size = new Random().Next(5, 10);
+int [,] collections = new int [size, size];
 
-// CreateArray(collections);
-// ShowArray(collections);
-// SortedArrayTwo(collections);
-// Console.WriteLine();
-// ShowArray(collections);
+CreateArray(collections);
+ShowArray(collections);
+SortedArrayTwo(collections);
+Console.WriteLine();
+ShowArray(collections);
 
-// void CreateArray(int [,] arr)
-// {
-//     for (int i = 0; i < arr.GetLength(0); i++)
-//     {
-//         for (int j = 0 + i; j < arr.GetLength(1); j++)
-//         {
-//             int num = new Random().Next(5, 10);
-//             arr[i, j] = num;
-//             arr[j, i] = num;
-//         };
-//     }
-// }
+void CreateArray(int [,] arr)
+{
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0 + i; j < arr.GetLength(1); j++)
+        {
+            int num = new Random().Next(5, 10);
+            arr[i, j] = num;
+            arr[j, i] = num;
+        };
+    }
+}
 
-// void ShowArray (int [,] arr)
-// {
-//     for (int i = 0; i < arr.GetLength(0); i++)
-//     {
-//         for (int j = 0; j < arr.GetLength(1); j++)
-//         {
-//             Console.Write($"{arr[i, j]}  ");
+void ShowArray (int [,] arr)
+{
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            Console.Write($"{arr[i, j]}  ");
 
-//         }
-//         Console.WriteLine();
-//     }
-// }
+        }
+        Console.WriteLine();
+    }
+}
 
-// void SortedArrayTwo (int [,] arr)
-// {
-//     for (int i = 0; i < arr.GetLength(0); i++)
-//     {    
-//         for (int j = 0; j < arr.GetLength(1); j++)
-//         {
-//             int max = j;
-//             for (int k = j + 1; k < arr.GetLength(1); k++)
-//             {
-//                 if (arr[i, k] > arr[i, max]) max = k;
-//             }
-//             int temp = arr[i, j];
-//             arr[i, j] = arr[i, max];
-//             arr[i, max] = temp;
-//         }
-//     }
-// }
+void SortedArrayTwo (int [,] arr)
+{
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {    
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            int max = j;
+            for (int k = j + 1; k < arr.GetLength(1); k++)
+            {
+                if (arr[i, k] > arr[i, max]) max = k;
+            }
+            int temp = arr[i, j];
+            arr[i, j] = arr[i, max];
+            arr[i, max] = temp;
+        }
+    }
+}
 
 //**************************************************************************************************************************
 
@@ -292,73 +292,73 @@
 // Задача 5
 // Заполните спирально массив 4 на 4
 
-int m = new Random().Next(3,15);
-int n = new Random().Next(3,15);
+// int m = new Random().Next(3,15);
+// int n = new Random().Next(3,15);
 
-int [,] array = new int [15, 17];
-int row = array.GetLength(0);
-int column = array.GetLength(1);
-int num = 1;
+// int [,] array = new int [15, 17];
+// int row = array.GetLength(0);
+// int column = array.GetLength(1);
+// int num = 1;
 
-RingCreate(array, column, row);
-PrintArray(array);
+// RingCreate(array, column, row);
+// PrintArray(array);
 
-void RingCreate (int[,] array, int col, int row, int x = 0, int y = 0)
-{
-    for (int j = y; j < col; j++)
-    {
-        if (array[x, j] == 0)
-        {
-            array[x, j] = num;
-            num++;
-        }
-        y++;
-    }
-    y--;
-    for (int i = x; i < row; i++)
-    {
-        if (array[i, y] == 0)
-        {
-            array[i, y] = num;
-            num++;
-        }
-        x++;
-    }
-    x--;
-    for (int j = y; j >= array.GetLength(0) - row; j--)
-    {
-        if (array[x, j] == 0)
-        {
-            array[x, j] = num;
-            num++;
-        }
-        y--;
-    }
-    y++;
-    for (int i = x; i >= array.GetLength(1) - col; i--)
-    {
-        if (array[i, y] == 0)
-        {
-            array[i, y] = num;
-            num++;
-        }
-        x--;
-    }
-    x++; 
-    while(array[array.GetLength(0)/2, array.GetLength(1)/2] == 0)
-    {
-        RingCreate(array, col-1, row-1, x+1, y+1);
-    }
-}
+// void RingCreate (int[,] array, int col, int row, int x = 0, int y = 0)
+// {
+//     for (int j = y; j < col; j++)
+//     {
+//         if (array[x, j] == 0)
+//         {
+//             array[x, j] = num;
+//             num++;
+//         }
+//         y++;
+//     }
+//     y--;
+//     for (int i = x; i < row; i++)
+//     {
+//         if (array[i, y] == 0)
+//         {
+//             array[i, y] = num;
+//             num++;
+//         }
+//         x++;
+//     }
+//     x--;
+//     for (int j = y; j >= array.GetLength(0) - row; j--)
+//     {
+//         if (array[x, j] == 0)
+//         {
+//             array[x, j] = num;
+//             num++;
+//         }
+//         y--;
+//     }
+//     y++;
+//     for (int i = x; i >= array.GetLength(1) - col; i--)
+//     {
+//         if (array[i, y] == 0)
+//         {
+//             array[i, y] = num;
+//             num++;
+//         }
+//         x--;
+//     }
+//     x++; 
+//     while(array[array.GetLength(0)/2, array.GetLength(1)/2] == 0)
+//     {
+//         RingCreate(array, col-1, row-1, x+1, y+1);
+//     }
+// }
 
-void PrintArray (int [,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            Console.Write($"{array[i, j]}\t");
-        }
-        Console.WriteLine();
-    }
-}
+// void PrintArray (int [,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             Console.Write($"{array[i, j]}\t");
+//         }
+//         Console.WriteLine();
+//     }
+// }
